@@ -15,13 +15,13 @@ const TodoList = () => {
 		setTodoArray,
 	} = useContext(CustomContext);
 
-	const handleTaskDone = async () => {
+	const setTaskDone = async (newstatus: boolean) => {
 		if (taskSelected === "-1") return;
 
 		const result = await axios.patch(`/tasks/${uuid}`, {
 			taskId: taskSelected,
 			message: todo.message,
-			completed: !todo.completed,
+			completed: newstatus,
 		});
 
 		if (result.status === 200) {
@@ -29,7 +29,7 @@ const TodoList = () => {
 				if (todo.taskId === taskSelected) {
 					return {
 						...todo,
-						completed: !todo.completed,
+						completed: newstatus,
 					};
 				} else {
 					return todo;
@@ -95,7 +95,9 @@ const TodoList = () => {
 										<>
 											<button
 												className="btn  btn-outline btn-warning w-full"
-												onClick={handleTaskDone}
+												onClick={() =>
+													setTaskDone(false)
+												}
 											>
 												undo done
 											</button>
@@ -104,7 +106,9 @@ const TodoList = () => {
 										<>
 											<button
 												className="btn btn-outline btn-success w-full"
-												onClick={handleTaskDone}
+												onClick={() =>
+													setTaskDone(true)
+												}
 											>
 												mark done
 											</button>
