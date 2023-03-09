@@ -36,7 +36,7 @@ export default function App({ Component, pageProps }: AppProps) {
 				setAddTask,
 			}}
 		>
-			<Component {...pageProps} />;
+			<Component {...pageProps} />
 		</CustomContext.Provider>
 	);
 }
