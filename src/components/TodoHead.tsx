@@ -82,6 +82,9 @@ const TodoHead = () => {
 		if (result.status === 200) {
 			setTodoArray(result.data.data.todos);
 			setUUID(search);
+
+            // set the uuid in local storage
+            localStorage.setItem("random_uuid", search);
 		}
 
 		setAddTask(false);
