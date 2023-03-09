@@ -81,9 +81,11 @@ const TodoHead = () => {
 		const result = await axios.get(`/tasks/${search}`);
 		if (result.status === 200) {
 			setTodoArray(result.data.data.todos);
+			setUUID(search);
 		}
 
 		setAddTask(false);
+		setSearchFlag(false);
 	};
 
 	return (
@@ -96,7 +98,7 @@ const TodoHead = () => {
 							onChange={(e) => {
 								setSearch(e.target.value);
 							}}
-                            placeholder="Search todo by unique id to recover it"
+							placeholder="Search todo by unique id to recover it"
 						></input>
 
 						<button
@@ -128,7 +130,7 @@ const TodoHead = () => {
 					<>
 						<input
 							className="input input-bordered w-full input-md text-lg"
-                            placeholder="Add new todo"
+							placeholder="Add new todo"
 							onChange={(e) => {
 								setTodo({
 									...todo,
@@ -170,7 +172,7 @@ const TodoHead = () => {
 									setTaskSelected("-1");
 								}}
 								icon={faPlus}
-                                buttonClassName="btn-sm md:btn-md"
+								buttonClassName="btn-sm md:btn-md"
 							>
 								Add Task
 							</IconButton>
