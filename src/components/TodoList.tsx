@@ -45,7 +45,7 @@ const TodoList = () => {
 				return (
 					<div
 						key={task.taskId}
-						className="flex flex-row gap-2 cursor-pointer "
+						className="flex flex-col md:flex-row gap-2 cursor-pointer "
 					>
 						<div
 							className="flex-1 flex items-center "
@@ -85,7 +85,7 @@ const TodoList = () => {
 								</span>
 							</div>
 						</div>
-						<div className="flex items-center ">
+						<div className="flex items-center">
 							{/* check if selected task is already completed */}
 							{/* if yes -> user can undo done task */}
 							{/* if no -> user can mark task as done */}
@@ -94,7 +94,7 @@ const TodoList = () => {
 									{task.completed ? (
 										<>
 											<button
-												className="btn  btn-outline btn-warning"
+												className="btn  btn-outline btn-warning w-full"
 												onClick={handleTaskDone}
 											>
 												undo done
@@ -103,7 +103,7 @@ const TodoList = () => {
 									) : (
 										<>
 											<button
-												className="btn btn-outline btn-success"
+												className="btn btn-outline btn-success w-full"
 												onClick={handleTaskDone}
 											>
 												mark done

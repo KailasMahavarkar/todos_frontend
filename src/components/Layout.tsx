@@ -25,28 +25,30 @@ const Layout = () => {
 	}, [uuid]);
 
 	return (
-		<div className="flex flex-col justify-center items-center relative h-[100vh] bg-gray-100 ">
-			<div className="flex flex-col gap-2 container shadow-xl p-5 max-w-5xl min-h-[600px] bg-white  rounded-md  px-10 ">
-				<h1 className="font-bold text-3xl text-center mb-2 ">
-					<span className="text-purple-400  px-2 rounded-md ">
-						Todo
-					</span>
-					App
-				</h1>
-				<div className="flex flex-row justify-between items-center ">
-					<TodoHead />
-				</div>
-				<div className="flex flex-col flex-1">
-					<TodoList />
-				</div>
-				{uuid && (
-					<div className="text-center font-bold ">
-						<span className="text-gray-400 ">
-							recover todos by unique id:{" "}
+		<div className="flex flex-col justify-center items-center relative h-[100vh] bg-gray-100  ">
+			<div className="flex w-full h-full justify-center items-center ">
+				<div className="flex flex-col gap-2 container shadow-xl p-5 max-w-5xl min-h-[600px] bg-white  rounded-md mx-3">
+					<h1 className="font-bold text-3xl text-center mb-2 ">
+						<span className="text-purple-400  px-2 rounded-md ">
+							Todo
 						</span>
-						{uuid}
+						App
+					</h1>
+					<div className="flex flex-row justify-between items-center ">
+						<TodoHead />
 					</div>
-				)}
+					<div className="flex flex-col flex-1">
+						<TodoList />
+					</div>
+					{uuid && (
+						<div className="text-center font-bold ">
+							<span className="text-gray-400 ">
+								recover todos by unique id:{" "}
+							</span>
+							{uuid}
+						</div>
+					)}
+				</div>
 			</div>
 		</div>
 	);

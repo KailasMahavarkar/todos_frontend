@@ -4,7 +4,7 @@ import CustomContext, {
 } from "@/context/CustomContext";
 import "@/styles/index.scss";
 import type { AppProps } from "next/app";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
 	const [uuid, setUUID] = useState<string>(defaultCustomContext.uuid);
@@ -14,6 +14,10 @@ export default function App({ Component, pageProps }: AppProps) {
 	);
 	const [taskSelected, setTaskSelected] = useState("-1");
 	const [addTask, setAddTask] = useState(false);
+
+	useEffect(() => {
+		console.log("API:", process.env.NEXT_PUBLIC_API);
+	}, []);
 
 	return (
 		<CustomContext.Provider
