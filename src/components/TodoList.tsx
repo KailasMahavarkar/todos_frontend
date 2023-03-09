@@ -42,6 +42,8 @@ const TodoList = () => {
 	return (
 		<>
 			{todoArray.map((task) => {
+				const iconSelected =
+					taskSelected === task.taskId ? faCircle : faCircleHollow;
 				return (
 					<div
 						key={task.taskId}
@@ -54,7 +56,7 @@ const TodoList = () => {
 							}}
 						>
 							<div
-								className={`flex items-center border-[2px] flex-1 text-lg capitalize p-2  rounded-md px-5 my-2 ${
+								className={`flex items-center  border-[2px] flex-1 text-lg capitalize p-2  rounded-md px-5 my-2 ${
 									task.taskId === taskSelected
 										? "border-[4px] border-purple-400 font-bold "
 										: ""
@@ -66,11 +68,7 @@ const TodoList = () => {
 											? "text-purple-400"
 											: ""
 									}`}
-									icon={
-										taskSelected === task.taskId
-											? faCircle
-											: faCircleHollow
-									}
+									icon={iconSelected}
 								/>
 								<span
 									className={`flex-1 ${
@@ -81,7 +79,7 @@ const TodoList = () => {
 											: ""
 									}`}
 								>
-									{task.message}
+									{task.message.substring(0, 50)}
 								</span>
 							</div>
 						</div>

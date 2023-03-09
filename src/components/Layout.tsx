@@ -26,8 +26,8 @@ const Layout = () => {
 
 	return (
 		<div className="flex flex-col justify-center items-center relative h-[100vh] bg-gray-100  ">
-			<div className="flex w-full h-full justify-center items-center ">
-				<div className="flex flex-col gap-2 container shadow-xl p-5 max-w-5xl min-h-[600px] bg-white  rounded-md mx-3">
+			<div className="flex flex-col w-full h-full justify-center items-center child:max-w-5xl test mx-5  ">
+				<div className="flex flex-col gap-2 container shadow-xl p-5  bg-white min-h-[600px]  rounded-t-md  mx-3">
 					<h1 className="font-bold text-3xl text-center mb-2 ">
 						<span className="text-purple-400  px-2 rounded-md ">
 							Todo
@@ -40,15 +40,17 @@ const Layout = () => {
 					<div className="flex flex-col flex-1">
 						<TodoList />
 					</div>
-					{uuid && (
-						<div className="text-center font-bold ">
-							<span className="text-gray-400 ">
-								recover todos by unique id:{" "}
-							</span>
-							{uuid}
-						</div>
-					)}
 				</div>
+				{uuid && (
+					<div className="w-full p-2 rounded-b-md  bg-yellow-100 text-center  ">
+						Note: If you want to recover your todos, please save
+						current unique id
+						<br />
+						<span className="text-purple-400  px-2 rounded-md font-bold">
+							{uuid}
+						</span>
+					</div>
+				)}
 			</div>
 		</div>
 	);
